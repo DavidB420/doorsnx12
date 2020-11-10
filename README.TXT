@@ -1,5 +1,5 @@
                       -----------------------------------
-                      |      DOORS NX VERSION 1.01      |
+                      |      DOORS NX VERSION 1.02      |
                       |                                 |
                       |                                 |
                       |            README               |
@@ -40,4 +40,4 @@ HxD hex editor - Imaging and debugging
 
 Extra thanks to Mike Saunders and Mikestylz as I used some of their assets
 for the development of Doors
-
+
