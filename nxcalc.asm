@@ -31,9 +31,6 @@ tmp3 dq -1.0
 intval dd 0,0
 decval dd 0,0
 
-ass:
-ret
-
 lbuttonclick:
 cmp word [mouseX],619
 jle s1
@@ -238,6 +235,10 @@ call clearfpu
 fninit
 fldz
 fst qword [answer]
+mov ecx,16
+mov edi,intval
+mov al,0
+repe stosb
 jmp sys_windowloop
 s14:
 cmp word [mouseX],449
@@ -376,7 +377,7 @@ jne findperiodloop
 mov edi,esi
 mov eax,dword [decval]
 mov cl,1
-call inttostr
+call printdecimal
 mov ax,word [numX]
 mov word [X],ax
 mov word [Y],47
@@ -387,6 +388,38 @@ mov byte [state],0
 jmp sys_windowloop
 s20:
 jmp sys_windowloop
+
+printdecimal:
+pusha
+push dword [ten]
+mov dword [ten],100000000
+mov ecx,8
+convertdecimal:
+mov eax,dword [decval]
+mov edx,0
+mov ebx,dword [ten]
+div ebx
+add al,30h
+stosb
+sub al,30h
+mul dword [ten]
+sub dword [decval],eax
+push eax
+push ebx
+mov edx,0
+mov eax,dword [ten]
+mov ebx,10
+div ebx
+mov dword [ten],eax
+pop ebx
+pop eax
+loop convertdecimal
+mov al,0
+stosb
+pop dword [ten]
+popa
+mov byte [counter],0
+ret
 
 statusword dw 1
 

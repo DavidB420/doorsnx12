@@ -158,7 +158,7 @@ jmp sys_windowloop
 
 jmp $
 
-titleString db 'Doors NX 1.01 Copyright (C) 2020 David Badiei',0
+titleString db 'Doors NX 1.02 Copyright (C) 2020 David Badiei',0
 table db 0x01,"1234567890-=",0X0E,0x0F,'qwertyuiop[]',0x1C,0,"asdfghjkl;'",0,0,0,"zxcvbnm,./",0,0,0," ",0
 tableCaps db 0x01,"1234567890-=",0X0E,0x0F,'QWERTYUIOP[]',0x1C,0,"ASDFGHJKL;'",0,0,0,"ZXCVBNM,./",0,0,0," ",0
 tableShift db 0x01,"!@#$%^&*()_+",0X0E,0x0F,'QWERTYUIOP{}',0x1C,0,"ASDFGHJKL:",0x22,0,0,0,"ZXCVBNM<>?",0,0,0," ",0
